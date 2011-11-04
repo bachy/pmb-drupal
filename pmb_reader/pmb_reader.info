@@ -1,0 +1,6 @@
+; $Id: pmb_reader.info,v 1.1 2010-07-28 11:00:59 erwanmartin Exp $
+name = PMB Reader
+description = Allows PMB readers to login to and to interract with your drupal website
+core = 6.x
+package = "PMB"
+dependencies[] = pmb

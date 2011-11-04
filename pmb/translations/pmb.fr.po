@@ -1,0 +1,928 @@
+# $Id: pmb.fr.po,v 1.3 2011-10-22 08:32:22 arenou Exp $
+#
+# French translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  pmb_admin_pages.inc: n/a
+#  pmb_browse_location.inc: n/a
+#  pmb_browse_section.inc: n/a
+#  pmb_browse_locations.inc: n/a
+#  pmb_browse_serials.inc: n/a
+#  pmb_browse_shelves.inc: n/a
+#  pmb_browse_thesauri.inc: n/a
+#  pmb_search.inc: n/a
+#  pmb_view_author.inc: n/a
+#  pmb_view_collection.inc: n/a
+#  pmb_view_notice.inc: n/a
+#  pmb_view_publisher.inc: n/a
+#  pmb_view_subcollection.inc: n/a
+#  pmb.module,v 1.8 2011-08-25 12:45:49 arenou
+#  templates/pmb_browse_location.tpl.php: n/a
+#  templates/pmb_bulletin_view.tpl.php: n/a
+#  templates/pmb_notice_view.tpl.php: n/a
+#  templates/pmb_browse_shelves.tpl.php: n/a
+#  templates/pmb_browse_thesauri.tpl.php: n/a
+#  templates/pmb_browse_category.tpl.php: n/a
+#  templates/pmb_search_results.tpl.php: n/a
+#  templates/pmb_external_notice_view.tpl.php: n/a
+#  templates/pmb_serial_view.tpl.php: n/a
+#  templates/pmb_subcollection_view.tpl.php: n/a
+#  templates/pmb_collection_view.tpl.php: n/a
+#  templates/pmb_external_notice_display.tpl.php: n/a
+#  templates/pmb_notice_display.tpl.php: n/a
+#  pmb.install: n/a
+#  pmb.info,v 1.1 2010-07-28 11:00:59 erwanmartin
+#  classes/pmb_gateway_jsonrpc.inc: n/a
+#  forms/pmb_search_forms.inc: n/a
+#  templates/pmb_author_view.tpl.php: n/a
+#  templates/pmb_publisher_view.tpl.php: n/a
+#  templates/pmb_browse_locations.tpl.php: n/a
+#  templates/pmb_browse_section.tpl.php: n/a
+#  templates/pmb_browse_serials.tpl.php: n/a
+#  templates/pmb_browse_shelf.tpl.php: n/a
+#  templates/pmb_shelf_block.tpl.php: n/a
+#  templates/pmb_external_search_results.tpl.php: n/a
+#  templates/pmb_pager.tpl.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2011-08-30 11:18+0200\n"
+"PO-Revision-Date: 2011-08-30 11:18+0200\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: French <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n>1);\n"
+
+#: pmb_admin_pages.inc:8
+msgid "PMB Linking"
+msgstr "Lien vers PMB"
+
+#: pmb_admin_pages.inc:12
+msgid "PMB link type"
+msgstr "Type de lien vers PMB"
+
+#: pmb_admin_pages.inc:14
+msgid "The type of the link to PMB"
+msgstr "Le type du lien vers PMB"
+
+#: pmb_admin_pages.inc:16
+msgid "JSON-RPC"
+msgstr "JSON-RPC"
+
+#: pmb_admin_pages.inc:22
+msgid "PMB service URL"
+msgstr "Url du service fourni par PMB"
+
+#: pmb_admin_pages.inc:26
+msgid "The url of the PMB service"
+msgstr "L'URL du service fourni par PMB"
+
+#: pmb_admin_pages.inc:31
+msgid "PMB service login"
+msgstr "L'identifiant du service"
+
+#: pmb_admin_pages.inc:35
+msgid "The login of the PMB service"
+msgstr ""
+"L'identifiant pour utiliser le service. Laissez blanc si l'utilisation "
+"est anonyme."
+
+#: pmb_admin_pages.inc:40
+msgid "PMB service password"
+msgstr ""
+"Le mot de passe pour utiliser le service. Laissez blanc si "
+"l'utilisation est anonyme."
+
+#: pmb_admin_pages.inc:44
+msgid "The password of the PMB service"
+msgstr "Le mot de passe du service"
+
+#: pmb_admin_pages.inc:50
+msgid "Cache"
+msgstr "Cache"
+
+#: pmb_admin_pages.inc:56
+msgid "Cache profile"
+msgstr "Profil de cache"
+
+#: pmb_admin_pages.inc:58
+msgid "The profile of the cache. Determine how to cache the notices. This will have an inpact on performances."
+msgstr ""
+"Le profil de cache. Détermine comment cacher les informations. Ceci "
+"aura un impact sur les performances"
+
+#: pmb_admin_pages.inc:61
+msgid "Anonymous and readers share the same cache"
+msgstr "Les anonymes et les lecteurs partagent le même cache"
+
+#: pmb_admin_pages.inc:62
+msgid "Anonymous readers have their own cache. All readers share the same cache."
+msgstr "les anonymes ont leur propre cache. Tous les lecteurs ont le même cache"
+
+#: pmb_admin_pages.inc:63
+msgid "Anonymous readers have their own cache. Each reader has its own cache"
+msgstr "Les anomymes ont leur propre cache. Chaque lecteur a son propre cache"
+
+#: pmb_admin_pages.inc:68
+msgid "Duration of the notices in the cache"
+msgstr "Durée de vie des notices dans le cache"
+
+#: pmb_admin_pages.inc:72
+msgid "The duration of the notices in the cache, in seconds"
+msgstr "Durée de vie des notices dans le cache, en secondes"
+
+#: pmb_admin_pages.inc:77
+msgid "Duration of the authors in the cache"
+msgstr "Durée de vie des auteurs dans le cache"
+
+#: pmb_admin_pages.inc:81
+msgid "The duration of the authors in the cache, in seconds"
+msgstr "Durée de vie des auteurs dans le cache, en secondes"
+
+#: pmb_admin_pages.inc:86
+msgid "Duration of the publishers in the cache"
+msgstr "Durée de vie des éditeurs dans le cache"
+
+#: pmb_admin_pages.inc:90
+msgid "The duration of the publishers in the cache, in seconds"
+msgstr "Durée de vie des éditeurs dans le cache, en secondes"
+
+#: pmb_admin_pages.inc:95
+msgid "Duration of the collections in the cache"
+msgstr "Durée de vie des collections dans le cache"
+
+#: pmb_admin_pages.inc:99
+msgid "The duration of the collections in the cache, in seconds"
+msgstr "Durée de vie des collections dans le cache, en secondes"
+
+#: pmb_admin_pages.inc:104
+msgid "Duration of the subcollection in the cache"
+msgstr "Durée de vie des sous-collection dans le cache"
+
+#: pmb_admin_pages.inc:108
+msgid "The duration of the subcollection in the cache, in seconds"
+msgstr "Durée de vie des sous-collection dans le cache, en secondes"
+
+#: pmb_admin_pages.inc:113
+msgid "Duration of the locations and sections in the cache"
+msgstr "Durée de vie des localisations et sections dans le cache"
+
+#: pmb_admin_pages.inc:117
+msgid "The duration of the locations and sections in the cache, in seconds"
+msgstr "Durée de vie des localisations et sections dans le cache, en secondes"
+
+#: pmb_admin_pages.inc:122
+msgid "Duration of the searches in the cache"
+msgstr "Durée de vie des recherches dans le cache"
+
+#: pmb_admin_pages.inc:126
+msgid "The duration of the searches in the cache, in seconds"
+msgstr "Durée de vie des recherches dans le cache, en secondes"
+
+#: pmb_admin_pages.inc:131
+msgid "Duration of the reader sessions in the cache"
+msgstr "Durée de vie des informations des lecteurs dans le cache"
+
+#: pmb_admin_pages.inc:135
+msgid "The duration of the reader sessions in the cache, in seconds"
+msgstr "Durée de vie des informations des lecteurs dans le cache, en secondes"
+
+#: pmb_admin_pages.inc:140
+msgid "Duration of the loans of readers in the cache"
+msgstr "Durée de vie des prêts des lecteurs dans le cache"
+
+#: pmb_admin_pages.inc:144
+msgid "The duration of the loans of readers in the cache, in seconds"
+msgstr "Durée de vie des prêts des lecteurs dans le cache, en secondes"
+
+#: pmb_admin_pages.inc:149
+msgid "Duration of the reservations of readers in the cache"
+msgstr "Durée de vie des réservations des lecteurs dans le cache"
+
+#: pmb_admin_pages.inc:153
+msgid "The duration of the reservations readers in the cache, in seconds"
+msgstr ""
+"Durée de vie des réservations des lecteurs dans le cache, en "
+"secondes"
+
+#: pmb_admin_pages.inc:160
+msgid "Display"
+msgstr "Affichage"
+
+#: pmb_admin_pages.inc:166
+msgid "Records per page / Authors"
+msgstr "Notices par page / Auteurs"
+
+#: pmb_admin_pages.inc:170
+msgid "Number of record per page in the author pages"
+msgstr "Nombre de notices par page, dans les pages des auteurs"
+
+#: pmb_admin_pages.inc:175
+msgid "Records per page / Publishers"
+msgstr "Notices par page / Editeurs"
+
+#: pmb_admin_pages.inc:179
+msgid "Number of records per page in the publisher pages"
+msgstr "Nombre de notices par page, dans les pages des éditeurs"
+
+#: pmb_admin_pages.inc:184
+msgid "Records per page / Collections"
+msgstr "Notices par page / Collections"
+
+#: pmb_admin_pages.inc:188
+msgid "Number of records per page in the collection pages"
+msgstr "Nombre de notices par page, dans les pages des collections"
+
+#: pmb_admin_pages.inc:193
+msgid "Records per page / Sub Collections"
+msgstr "Notices par page / Sous-collections"
+
+#: pmb_admin_pages.inc:197
+msgid "Number of records per page in the sub collection pages"
+msgstr "Nombre de notices par page, dans les pages des sous collections"
+
+#: pmb_admin_pages.inc:202
+msgid "Records per page / Search"
+msgstr "Notices par page / Recherches"
+
+#: pmb_admin_pages.inc:206
+msgid "Number of records per page in the search results"
+msgstr "Nombre de notices par page, dans les pages des recherches"
+
+#: pmb_browse_location.inc:11;12 pmb_browse_section.inc:26;27
+msgid "Location not found!"
+msgstr "Localisation non trouvée"
+
+#: pmb_browse_location.inc:17
+msgid "Location: "
+msgstr "Localisation: "
+
+#: pmb_browse_location.inc:19 pmb_browse_locations.inc:12 pmb_browse_section.inc:38 pmb_browse_serials.inc:12 pmb_browse_shelves.inc:12;40 pmb_browse_thesauri.inc:16;70 pmb_search.inc:29;58;86;131 pmb_view_author.inc:28 pmb_view_collection.inc:26 pmb_view_notice.inc:42;100;126 pmb_view_publisher.inc:26 pmb_view_subcollection.inc:26
+msgid "Home"
+msgstr "Accueil"
+
+#: pmb_browse_location.inc:20 pmb_browse_locations.inc:13 pmb_browse_section.inc:39 pmb_browse_shelves.inc:13;41 pmb.module:148;149;184;185;193;194;203;204;213;214;223;224;242;243;252;253
+msgid "Browse the catalog"
+msgstr "Parcourir le catalogue"
+
+#: pmb_browse_location.inc:21 pmb_browse_section.inc:40
+msgid "Browse location"
+msgstr "Parcourir les localisations"
+
+#: pmb_browse_section.inc:31;32
+msgid "Section not found!"
+msgstr "Section non trouvée"
+
+#: pmb_browse_section.inc:36 templates/pmb_browse_location.tpl.php:5 templates/pmb_bulletin_view.tpl.php:132 templates/pmb_notice_view.tpl.php:156
+msgid "Section"
+msgstr "Section"
+
+#: pmb_browse_section.inc:41
+msgid "Browse section"
+msgstr "Parcourir une section"
+
+#: pmb_browse_serials.inc:13 pmb.module:176
+msgid "Browse the catalog - Serials"
+msgstr "Parcourir le catalogue - Périodiques"
+
+#: pmb_browse_shelves.inc:33;34 pmb.module:649
+msgid "Shelf not found!"
+msgstr "Etagère non trouvée"
+
+#: pmb_browse_shelves.inc:38 templates/pmb_browse_shelves.tpl.php:4
+msgid "Shelf"
+msgstr "Etagère"
+
+#: pmb_browse_shelves.inc:42
+msgid "Browse shelf"
+msgstr "Parcourir l'étagère"
+
+#: pmb_browse_thesauri.inc:17;71 pmb.module:167
+msgid "Browse the catalog - Thesauri"
+msgstr "Parcourir le catalogue - Thésaurus"
+
+#: pmb_browse_thesauri.inc:30;31
+msgid "Category not found!"
+msgstr "Catégorie non trouvée"
+
+#: pmb_browse_thesauri.inc:50;73 templates/pmb_browse_thesauri.tpl.php:4
+msgid "Thesaurus"
+msgstr "Thésaurus"
+
+#: pmb_browse_thesauri.inc:62;64;84;86 templates/pmb_browse_category.tpl.php:18;20;51;53
+msgid "Unknown caption"
+msgstr "Terme inconnu"
+
+#: pmb_browse_thesauri.inc:67
+msgid "Category"
+msgstr "Catégorie"
+
+#: pmb_search.inc:22;23;79;80
+msgid "Invalid search!"
+msgstr "Recherche invalide !"
+
+#: pmb_search.inc:27 templates/pmb_search_results.tpl.php:3
+msgid "Search: "
+msgstr "Recherche: "
+
+#: pmb_search.inc:30;132 pmb.module:61;108;109;118;119;392;593;619;625;60
+msgid "Search the catalog"
+msgstr "Rechercher dans le catalogue"
+
+#: pmb_search.inc:31;88;133
+msgid "Search results"
+msgstr "Résultats de recherche"
+
+#: pmb_search.inc:59;87 pmb.module:82;100;128;129;138;139;80
+msgid "Search the external catalog"
+msgstr "Chercher dans le catalogue externe"
+
+#: pmb_search.inc:84
+msgid "External search: "
+msgstr "Recherche externe: "
+
+#: pmb_view_author.inc:14;15
+msgid "Author not found!"
+msgstr "Auteur non trouvé !"
+
+#: pmb_view_author.inc:25 templates/pmb_bulletin_view.tpl.php:51;61;71 templates/pmb_external_notice_view.tpl.php:41;52;63 templates/pmb_notice_view.tpl.php:42;53;64 templates/pmb_serial_view.tpl.php:40;50;60
+msgid "Author"
+msgstr "Auteur"
+
+#: pmb_view_author.inc:29 pmb.module:312;322
+msgid "View Author"
+msgstr "Afficher un auteur"
+
+#: pmb_view_collection.inc:14;15
+msgid "Collection not found!"
+msgstr "Collection non trouvée !"
+
+#: pmb_view_collection.inc:23 templates/pmb_bulletin_view.tpl.php:87 templates/pmb_external_notice_view.tpl.php:81 templates/pmb_notice_view.tpl.php:107 templates/pmb_serial_view.tpl.php:76 templates/pmb_subcollection_view.tpl.php:15
+msgid "Collection"
+msgstr "Collection"
+
+#: pmb_view_collection.inc:27 pmb.module:352;362
+msgid "View Collection"
+msgstr "Afficher une collection"
+
+#: pmb_view_notice.inc:14;15;87;88
+msgid "Record not found!"
+msgstr "Notice non trouvée"
+
+#: pmb_view_notice.inc:39
+msgid "Record"
+msgstr "Notice"
+
+#: pmb_view_notice.inc:43 pmb.module:262
+msgid "View Record"
+msgstr "Afficher une notice"
+
+#: pmb_view_notice.inc:101 pmb.module:272
+msgid "View External Notice"
+msgstr "Afficher une notice externe"
+
+#: pmb_view_notice.inc:115;116
+msgid "Serial not found!"
+msgstr "Périodique non trouvé !"
+
+#: pmb_view_notice.inc:127 pmb.module:292;302
+msgid "View Serial"
+msgstr "Afficher un périodique"
+
+#: pmb_view_notice.inc:149;150
+msgid "Issue not found!"
+msgstr "Bulletin non trouvé"
+
+#: pmb_view_publisher.inc:14;15
+msgid "Publisher not found!"
+msgstr "Editeur non trouvé"
+
+#: pmb_view_publisher.inc:23 templates/pmb_bulletin_view.tpl.php:79 templates/pmb_collection_view.tpl.php:14 templates/pmb_external_notice_display.tpl.php:85 templates/pmb_external_notice_view.tpl.php:72 templates/pmb_notice_display.tpl.php:89;173 templates/pmb_notice_view.tpl.php:73 templates/pmb_serial_view.tpl.php:68
+msgid "Publisher"
+msgstr "Editeur"
+
+#: pmb_view_publisher.inc:27 pmb.module:332;342
+msgid "View Publisher"
+msgstr "Afficher un éditeur"
+
+#: pmb_view_subcollection.inc:14;15
+msgid "Subcollection not found!"
+msgstr "Sous-collection non trouvée"
+
+#: pmb_view_subcollection.inc:23
+msgid "Subcollection"
+msgstr "Sous-collection"
+
+#: pmb_view_subcollection.inc:27 pmb.module:372;382
+msgid "View Subcollection"
+msgstr "Afficher une sous-collection"
+
+#: pmb.module:21
+msgid "This module does not include any help."
+msgstr "Ce module n'inclut pas d'aide"
+
+#: pmb.module:52
+msgid "Configure the PMB module"
+msgstr "Configurer le module PMB"
+
+#: pmb.module:64;74
+msgid "Quick links"
+msgstr "Accès directs"
+
+#: pmb.module:71;91;70
+msgid "Search the local catalog"
+msgstr "Chercher dans le catalogue local"
+
+#: pmb.module:90
+msgid "Local catalog"
+msgstr "Catalogue local"
+
+#: pmb.module:99
+msgid "External catalog"
+msgstr "Catalogue externe"
+
+#: pmb.module:157
+msgid "Locations"
+msgstr "Localisations"
+
+#: pmb.module:158
+msgid "Browse the catalog - Locations"
+msgstr "Parcourir le Catalogue - Localisations"
+
+#: pmb.module:166
+msgid "Thesauri"
+msgstr "Thésaurus"
+
+#: pmb.module:175
+msgid "Serials"
+msgstr "Périodiques"
+
+#: pmb.module:233
+msgid "Shelves"
+msgstr "Etagères"
+
+#: pmb.module:234
+msgid "Browse the catalog - Shelves"
+msgstr "Parcourir le Catalogue - Etagères"
+
+#: pmb.module:263
+msgid "View a notice"
+msgstr "Voir une notice"
+
+#: pmb.module:273
+msgid "View an external notice"
+msgstr "Voir une notice externe"
+
+#: pmb.module:282
+msgid "View Issue"
+msgstr "Voir un bulletin"
+
+#: pmb.module:283
+msgid "View an issue"
+msgstr "Voir un bulletin"
+
+#: pmb.module:293;303
+msgid "View a serial"
+msgstr "Voir un périodique"
+
+#: pmb.module:313;323
+msgid "View an author"
+msgstr "Voir un auteur"
+
+#: pmb.module:333;343
+msgid "View a Publisher"
+msgstr "Voir un éditeur"
+
+#: pmb.module:353;363
+msgid "View a Collection"
+msgstr "Voir une collection"
+
+#: pmb.module:373;383
+msgid "View a Subcollection"
+msgstr "Voir une sous-collection"
+
+#: pmb.module:672
+msgid "Catalog"
+msgstr "Catalogue"
+
+#: pmb.module:33
+msgid "pmb search catalog"
+msgstr "pmb recherche catalogue"
+
+#: pmb.module:34
+msgid "pmb search catalog external"
+msgstr "pmb recherche catalogue externe"
+
+#: pmb.module:35
+msgid "pmb browse"
+msgstr "pmb navigation"
+
+#: pmb.module:36
+msgid "pmb browse thesauri"
+msgstr "pmb navigation thesaurus"
+
+#: pmb.module:37
+msgid "pmb browse serials"
+msgstr "pmb navigation périodiques"
+
+#: pmb.module:38
+msgid "pmb view notice"
+msgstr "pmb voir notice"
+
+#: pmb.module:39
+msgid "pmb view author"
+msgstr "pmb voir auteur"
+
+#: pmb.module:40
+msgid "pmb view collection"
+msgstr "pmb voir collection"
+
+#: pmb.module:41
+msgid "pmb view publisher"
+msgstr "pmb voir editeur"
+
+#: pmb.module:42
+msgid "pmb aggregate search"
+msgstr "pmb recherche fédérée"
+
+#: pmb.module:43
+msgid "pmb advanced search"
+msgstr "pmb recherche avancée"
+
+#: pmb.module:51
+msgid "PMB module settings"
+msgstr "Paramètres du module PMB"
+
+#: pmb.module:391
+msgid "Advanced search in the catalog"
+msgstr "Recherche avancée dans le catalogue"
+
+#: pmb.install:24
+msgid "Cache information obtained from the PMB webservices"
+msgstr "Caches des données reçues du Webservices PMB "
+
+#: pmb.install:27
+msgid "The id of the cached object"
+msgstr "L'id de l'objet caché"
+
+#: pmb.install:33
+msgid "The date at which the record is too old"
+msgstr "La date à laquelle l'enregistrement est trop vieux"
+
+#: pmb.install:38
+msgid "The cached data"
+msgstr "Les données cachées"
+
+#: pmb.info:0;0
+msgid "PMB"
+msgstr "PMB"
+
+#: pmb.info:0
+msgid "A module to link the pmb catalog to your drupal website"
+msgstr "Un module pour lier le catalogue PMB à votre site drupal"
+
+#: classes/pmb_gateway_jsonrpc.inc:66;94;130;211;237;263;289;303;321;339;365;418;432;472;490;541;559;578;589;601;614;626;638;650;662;674;686;698;710;722;734;747;759;771;783;795;807;819;831;843
+msgid "JSON-RPC error"
+msgstr "Erreur JSON-RPC"
+
+#: forms/pmb_search_forms.inc:5;99
+msgid "All fields"
+msgstr "Tous les champs"
+
+#: forms/pmb_search_forms.inc:6;100
+msgid "Titles"
+msgstr "Titres"
+
+#: forms/pmb_search_forms.inc:7;101 templates/pmb_external_notice_display.tpl.php:81 templates/pmb_notice_display.tpl.php:85;169
+msgid "Authors"
+msgstr "Auteurs"
+
+#: forms/pmb_search_forms.inc:8;102
+msgid "Publishers"
+msgstr "Editeurs"
+
+#: forms/pmb_search_forms.inc:9;103
+msgid "Collections"
+msgstr "Collections"
+
+#: forms/pmb_search_forms.inc:10;104
+msgid "Sub collections"
+msgstr "Sous-Collections"
+
+#: forms/pmb_search_forms.inc:11
+msgid "Categories"
+msgstr "Catégories"
+
+#: forms/pmb_search_forms.inc:12
+msgid "Decimal indexing"
+msgstr "Indexations décimales"
+
+#: forms/pmb_search_forms.inc:20;137
+msgid "Search terms"
+msgstr "Champs de recherche"
+
+#: forms/pmb_search_forms.inc:23;140
+msgid "The search terms"
+msgstr "Termes de recherche"
+
+#: forms/pmb_search_forms.inc:29;146
+msgid "Fields"
+msgstr "Champs"
+
+#: forms/pmb_search_forms.inc:30;147
+msgid "Fields to search"
+msgstr "Champs dans lesquels chercher"
+
+#: forms/pmb_search_forms.inc:34;172;361
+msgid "Rechercher"
+msgstr "Rechercher"
+
+#: forms/pmb_search_forms.inc:54;93;179
+msgid "Please enter a search query."
+msgstr "Veuillez saisir une recherche"
+
+#: forms/pmb_search_forms.inc:64;200
+msgid "Please enter at least one field to search in."
+msgstr "Veuillez sélectionner au moins un champs de recherche"
+
+#: forms/pmb_search_forms.inc:72
+msgid "Quick search terms"
+msgstr "Recherche rapide"
+
+#: forms/pmb_search_forms.inc:75
+msgid "Please enter one or more search terms"
+msgstr "Veuillez saisir un ou plusieurs terme(s)"
+
+#: forms/pmb_search_forms.inc:78
+msgid "Search"
+msgstr "Recherche"
+
+#: forms/pmb_search_forms.inc:105
+msgid "ISBN/Bar Code"
+msgstr "ISBN / Code-barre"
+
+#: forms/pmb_search_forms.inc:125
+msgid "Sources"
+msgstr "Sources"
+
+#: forms/pmb_search_forms.inc:125
+msgid "Comments"
+msgstr "Commentaires"
+
+#: forms/pmb_search_forms.inc:189
+msgid "Please enter at least one source to search in."
+msgstr "Veuillez renseigner au moins une source où chercher"
+
+#: forms/pmb_search_forms.inc:264
+msgid "Operators"
+msgstr "Opérateurs"
+
+#: forms/pmb_search_forms.inc:276;284;291;298;304;312
+msgid "Value"
+msgstr "Valeur"
+
+#: forms/pmb_search_forms.inc:339
+msgid "Criterias"
+msgstr "Critères"
+
+#: templates/pmb_author_view.tpl.php:8;9 templates/pmb_bulletin_view.tpl.php:21 templates/pmb_collection_view.tpl.php:8 templates/pmb_external_notice_view.tpl.php:21 templates/pmb_notice_view.tpl.php:22 templates/pmb_publisher_view.tpl.php:8 templates/pmb_serial_view.tpl.php:21 templates/pmb_subcollection_view.tpl.php:8
+msgid "Information"
+msgstr "Détail"
+
+#: templates/pmb_author_view.tpl.php:9 templates/pmb_browse_category.tpl.php:4;37 templates/pmb_collection_view.tpl.php:10 templates/pmb_publisher_view.tpl.php:11 templates/pmb_subcollection_view.tpl.php:11
+msgid "Caption"
+msgstr "Libellé"
+
+#: templates/pmb_author_view.tpl.php:13 templates/pmb_bulletin_view.tpl.php:159 templates/pmb_collection_view.tpl.php:12 templates/pmb_notice_view.tpl.php:183 templates/pmb_publisher_view.tpl.php:13 templates/pmb_subcollection_view.tpl.php:13
+msgid "Name"
+msgstr "Nom"
+
+#: templates/pmb_author_view.tpl.php:16 templates/pmb_serial_view.tpl.php:108
+msgid "Date"
+msgstr "Date"
+
+#: templates/pmb_author_view.tpl.php:18 templates/pmb_collection_view.tpl.php:20 templates/pmb_publisher_view.tpl.php:25 templates/pmb_subcollection_view.tpl.php:21
+msgid "Web"
+msgstr "Site Web"
+
+#: templates/pmb_author_view.tpl.php:20 templates/pmb_browse_locations.tpl.php:4
+msgid "Location"
+msgstr "Localisation"
+
+#: templates/pmb_author_view.tpl.php:22 templates/pmb_browse_shelves.tpl.php:5 templates/pmb_publisher_view.tpl.php:27
+msgid "Comment"
+msgstr "Commentaire"
+
+#: templates/pmb_author_view.tpl.php:29 templates/pmb_browse_category.tpl.php:62 templates/pmb_collection_view.tpl.php:27 templates/pmb_publisher_view.tpl.php:33 templates/pmb_subcollection_view.tpl.php:29
+msgid "Records"
+msgstr "Notices"
+
+#: templates/pmb_author_view.tpl.php:55 templates/pmb_collection_view.tpl.php:53 templates/pmb_publisher_view.tpl.php:59 templates/pmb_subcollection_view.tpl.php:55
+msgid "Linked entities"
+msgstr "Autorités liées"
+
+#: templates/pmb_browse_category.tpl.php:2
+msgid "Subcategories"
+msgstr "Sous-catégorie"
+
+#: templates/pmb_browse_category.tpl.php:31
+msgid "This categorie has no subcategories"
+msgstr "Cette catégorie n'a pas de sous-catégories"
+
+#: templates/pmb_browse_category.tpl.php:36
+msgid "See also"
+msgstr "Voir aussi"
+
+#: templates/pmb_browse_category.tpl.php:86
+msgid "This category has no records"
+msgstr "Cette catégorie n'a pas de notices"
+
+#: templates/pmb_browse_locations.tpl.php:5
+msgid "Number of sections"
+msgstr "Nombre de sections"
+
+#: templates/pmb_browse_section.tpl.php:20
+msgid "This section has no records"
+msgstr "Cette section est vide"
+
+#: templates/pmb_browse_serials.tpl.php:36 templates/pmb_bulletin_view.tpl.php:27;174 templates/pmb_external_notice_display.tpl.php:77 templates/pmb_external_notice_view.tpl.php:30 templates/pmb_notice_display.tpl.php:81;165 templates/pmb_notice_view.tpl.php:31 templates/pmb_serial_view.tpl.php:30;108
+msgid "Title"
+msgstr "Titre"
+
+#: templates/pmb_browse_serials.tpl.php:36
+msgid "Number of issue"
+msgstr "Nombre de Bulletins"
+
+#: templates/pmb_browse_serials.tpl.php:36
+msgid "Number of items"
+msgstr "Nombre d'exemplaires"
+
+#: templates/pmb_browse_serials.tpl.php:36
+msgid "Number of analysis"
+msgstr "Nombre de dépouillements"
+
+#: templates/pmb_browse_shelf.tpl.php:22 templates/pmb_shelf_block.tpl.php:19
+msgid "This shelf has no records"
+msgstr "Cette étagère est vide"
+
+#: templates/pmb_bulletin_view.tpl.php:28
+msgid "Number"
+msgstr "Numéro"
+
+#: templates/pmb_bulletin_view.tpl.php:29
+msgid "Issue date"
+msgstr "Mention date"
+
+#: templates/pmb_bulletin_view.tpl.php:41;189
+msgid "Unknown title"
+msgstr "Titre inconnu"
+
+#: templates/pmb_bulletin_view.tpl.php:43 templates/pmb_notice_view.tpl.php:84
+msgid "Serial"
+msgstr "Périodique"
+
+#: templates/pmb_bulletin_view.tpl.php:95 templates/pmb_external_notice_view.tpl.php:90 templates/pmb_notice_view.tpl.php:116 templates/pmb_serial_view.tpl.php:84
+msgid "Sub-collection"
+msgstr "Sous-collection"
+
+#: templates/pmb_bulletin_view.tpl.php:103 templates/pmb_external_notice_view.tpl.php:99 templates/pmb_notice_view.tpl.php:125 templates/pmb_serial_view.tpl.php:92
+msgid "Format"
+msgstr "Format"
+
+#: templates/pmb_bulletin_view.tpl.php:107 templates/pmb_external_notice_view.tpl.php:104 templates/pmb_notice_view.tpl.php:130 templates/pmb_serial_view.tpl.php:96
+msgid "Importance"
+msgstr "Importance"
+
+#: templates/pmb_bulletin_view.tpl.php:116 templates/pmb_external_notice_view.tpl.php:113 templates/pmb_notice_view.tpl.php:139
+msgid "Description"
+msgstr "Description"
+
+#: templates/pmb_bulletin_view.tpl.php:129 templates/pmb_notice_view.tpl.php:153
+msgid "Items"
+msgstr "Exemplaires"
+
+#: templates/pmb_bulletin_view.tpl.php:132 templates/pmb_notice_view.tpl.php:156
+msgid "Barcode"
+msgstr "Codebarre"
+
+#: templates/pmb_bulletin_view.tpl.php:132 templates/pmb_notice_view.tpl.php:156
+msgid "Cote"
+msgstr "Cote"
+
+#: templates/pmb_bulletin_view.tpl.php:132 templates/pmb_notice_view.tpl.php:156
+msgid "Media type"
+msgstr "Support"
+
+#: templates/pmb_bulletin_view.tpl.php:132 templates/pmb_notice_view.tpl.php:156
+msgid "Location"
+msgstr "Localisation"
+
+#: templates/pmb_bulletin_view.tpl.php:132
+msgid "Availability"
+msgstr "Disponibilité"
+
+#: templates/pmb_bulletin_view.tpl.php:144 templates/pmb_notice_view.tpl.php:168
+msgid "Holding"
+msgstr "Réservation"
+
+#: templates/pmb_bulletin_view.tpl.php:145 templates/pmb_notice_view.tpl.php:169
+msgid "Hold this document"
+msgstr "Réserver ce document"
+
+#: templates/pmb_bulletin_view.tpl.php:156 templates/pmb_notice_view.tpl.php:180
+msgid "Digital items"
+msgstr "Documents numériques"
+
+#: templates/pmb_bulletin_view.tpl.php:159 templates/pmb_notice_view.tpl.php:183
+msgid "Download URL"
+msgstr "Adresse"
+
+#: templates/pmb_bulletin_view.tpl.php:171
+msgid "Analysis"
+msgstr "Dépouillements"
+
+#: templates/pmb_collection_view.tpl.php:10 templates/pmb_publisher_view.tpl.php:11 templates/pmb_subcollection_view.tpl.php:11
+msgid "Value"
+msgstr "Valeur"
+
+#: templates/pmb_collection_view.tpl.php:17 templates/pmb_subcollection_view.tpl.php:18
+msgid "ISSN"
+msgstr "ISSN"
+
+#: templates/pmb_external_notice_display.tpl.php:73
+msgid "Source"
+msgstr "Source"
+
+#: templates/pmb_external_search_results.tpl.php:29 templates/pmb_search_results.tpl.php:26
+msgid "This search has no results"
+msgstr "Pas de résultats pour cette recherche"
+
+#: templates/pmb_notice_view.tpl.php:97
+msgid "Issue"
+msgstr "Bulletin"
+
+#: templates/pmb_notice_view.tpl.php:156
+msgid "Availability"
+msgstr "Disponibilité"
+
+#: templates/pmb_notice_view.tpl.php:156
+msgid "Situation"
+msgstr "Etat"
+
+#: templates/pmb_notice_view.tpl.php:195
+msgid "Add to cart"
+msgstr "Ajouter au panier"
+
+#: templates/pmb_pager.tpl.php:12
+msgid "<< first"
+msgstr "<< première page"
+
+#: templates/pmb_pager.tpl.php:18
+msgid "< previous"
+msgstr "< page précédente"
+
+#: templates/pmb_pager.tpl.php:32
+msgid "next >"
+msgstr "page suivante >"
+
+#: templates/pmb_publisher_view.tpl.php:15;17
+msgid "Address"
+msgstr "Adresse"
+
+#: templates/pmb_publisher_view.tpl.php:19
+msgid "Zipcode"
+msgstr "Code postal"
+
+#: templates/pmb_publisher_view.tpl.php:21
+msgid "City"
+msgstr "Ville"
+
+#: templates/pmb_publisher_view.tpl.php:23
+msgid "Country"
+msgstr "Pays"
+
+#: templates/pmb_serial_view.tpl.php:105
+msgid "Issues"
+msgstr "Bulletins"
+
+#: templates/pmb_serial_view.tpl.php:108
+msgid "Number"
+msgstr "Nombre"
+
+#: templates/pmb_serial_view.tpl.php:108
+msgid "Barcode"
+msgstr "Codebarre"
+
+#: templates/pmb_serial_view.tpl.php:111
+msgid "Unknown"
+msgstr "Inconnu"
+
+#: templates/pmb_pager.tpl.php:43
+msgid "last"
+msgstr "dernière page"
+
+

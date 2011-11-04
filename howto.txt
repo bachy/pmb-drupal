@@ -1,0 +1,2 @@
+Coller les deux répertoires dans le répertoire 'modules' de drupal.
+En administration  Construction du site > Modules , activer PMB et PMB Reader (optionnel)

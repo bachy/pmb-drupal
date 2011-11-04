@@ -1,0 +1,54 @@
+<?php
+// +-------------------------------------------------+
+// © 2011-2012 PMB Services / www.sigb.net pmb@sigb.net et contributeurs (voir www.sigb.net)
+// +-------------------------------------------------+
+// $Id: pmb.install,v 1.3 2011-10-21 20:32:24 gueluneau Exp $
+
+function pmb_install() {
+	drupal_install_schema('pmb');
+}
+
+function pmb_uninstall() {
+	drupal_uninstall_schema('pmb');
+}
+
+function pmb_schema() {
+  $schema = array();
+
+  /*
+CREATE TABLE IF NOT EXISTS pmb_cache (
+  object_id varchar(255) NOT NULL,
+  delete_on_date datetime NOT NULL,
+  object_data mediumtext NOT NULL,
+  PRIMARY KEY (object_id)
+);
+   * */
+  
+  $schema['pmb_cache'] = array(
+    'description' => t('Cache information obtained from the PMB webservices'),
+    'fields' => array(
+      'object_id' => array(
+        'description' => t('The id of the cached object'),
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => true,
+      ),
+      'delete_on_date' => array(
+        'description' => t('The date at which the record is too old'),
+        'type' => 'datetime',
+      	'not null' => true,
+      ),
+      'object_data' => array(
+        'description' => t('The cached data'),
+        'type' => 'text',
+      	'size' => 'medium',
+      ),
+    ),
+    'indexes' => array(
+      'expiration_date' => array('delete_on_date'),
+    ),
+    'primary key' => array('object_id'),
+  );        
+       
+  return $schema;
+}

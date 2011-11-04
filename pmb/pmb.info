@@ -1,0 +1,5 @@
+; $Id: pmb.info,v 1.1 2010-07-28 11:00:59 erwanmartin Exp $
+name = PMB
+description = A module to link the pmb catalog to your drupal website
+core = 6.x
+package = "PMB"

@@ -1,0 +1,514 @@
+# $Id: pmb_reader.fr.po,v 1.2 2011-08-30 10:40:29 arenou Exp $
+#
+# French translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  pmb_reader_account.inc: n/a
+#  pmb_reader_cart.inc: n/a
+#  pmb_reader_reading_lists.inc: n/a
+#  pmb_reader_reservations.inc: n/a
+#  pmb_reader_suggestions.inc: n/a
+#  pmb_reader.module: n/a
+#  pmb_reader_forms.inc: n/a
+#  templates/pmb_reader_reader_account_loans.tpl.php: n/a
+#  templates/pmb_reader_reader_account_suggestions.tpl.php: n/a
+#  templates/pmb_reader_reader_public_reading_list.tpl.php: n/a
+#  templates/pmb_reader_reader_public_reading_lists.tpl.php: n/a
+#  templates/pmb_reader_reader_account_reservations.tpl.php: n/a
+#  templates/pmb_reader_reader_reading_lists.tpl.php: n/a
+#  pmb_reader.info,v 1.1 2010-07-28 11:00:59 erwanmartin
+#  templates/pmb_reader_cart_form.tpl.php: n/a
+#  templates/pmb_reader_reading_list_form.tpl.php: n/a
+#  templates/pmb_reader_reader_account_summary.tpl.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2011-08-30 11:18+0200\n"
+"PO-Revision-Date: 2011-08-30 11:18+0200\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: French <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n>1);\n"
+
+#: pmb_reader_account.inc:4
+msgid "My reader account: Summary"
+msgstr "Mon compte lecteur - Résumé"
+
+#: pmb_reader_account.inc:6;15 pmb_reader_cart.inc:13 pmb_reader_reading_lists.inc:6;25;63;96 pmb_reader_reservations.inc:6;80 pmb_reader_suggestions.inc:6;25
+msgid "Home"
+msgstr "Accueil"
+
+#: pmb_reader_account.inc:7;16 pmb_reader_cart.inc:14 pmb_reader_reading_lists.inc:7;26;64;97 pmb_reader_reservations.inc:7 pmb_reader_suggestions.inc:7;26
+msgid "My reader account"
+msgstr "Mon compte lecteur"
+
+#: pmb_reader_account.inc:17 pmb_reader.module:135
+msgid "Loans"
+msgstr "Prêts"
+
+#: pmb_reader_cart.inc:11
+msgid "My reader account: Cart: "
+msgstr "Mon compte lecteur - Panier"
+
+#: pmb_reader_cart.inc:15 pmb_reader.module:259
+msgid "Cart"
+msgstr "Panier"
+
+#: pmb_reader_forms.inc:9 templates/pmb_reader_reader_account_loans.tpl.php:3 templates/pmb_reader_reader_account_suggestions.tpl.php:2
+msgid "Title"
+msgstr "Titre"
+
+#: pmb_reader_forms.inc:13
+msgid "The title of the document"
+msgstr "Le titre du document"
+
+#: pmb_reader_forms.inc:19 templates/pmb_reader_reader_account_suggestions.tpl.php:2 templates/pmb_reader_reader_public_reading_list.tpl.php:3 templates/pmb_reader_reader_public_reading_lists.tpl.php:2
+msgid "Author"
+msgstr "Auteur"
+
+#: pmb_reader_forms.inc:23
+msgid "The author of the document"
+msgstr "L'auteur du document"
+
+#: pmb_reader_forms.inc:29 templates/pmb_reader_reader_account_suggestions.tpl.php:2
+msgid "Publisher"
+msgstr "Editeur"
+
+#: pmb_reader_forms.inc:33
+msgid "The publisher of the document"
+msgstr "L'éditeur du document"
+
+#: pmb_reader_forms.inc:39
+msgid "ISBN / Bar code"
+msgstr "ISBN / Codebarre"
+
+#: pmb_reader_forms.inc:43
+msgid "The bar code of the document"
+msgstr "Le codebarre du document"
+
+#: pmb_reader_forms.inc:48
+msgid "Price"
+msgstr "Prix"
+
+#: pmb_reader_forms.inc:52
+msgid "The price of the document"
+msgstr "Le prix du document"
+
+#: pmb_reader_forms.inc:57
+msgid "URL"
+msgstr "URL"
+
+#: pmb_reader_forms.inc:61
+msgid "The website of the document"
+msgstr "Le site web du document"
+
+#: pmb_reader_forms.inc:66
+msgid "Publication date"
+msgstr "Date de publication"
+
+#: pmb_reader_forms.inc:70
+msgid "The date of the document"
+msgstr "La date du document"
+
+#: pmb_reader_forms.inc:75
+msgid "Comment"
+msgstr "Commentaire"
+
+#: pmb_reader_forms.inc:77
+msgid "The comment of the suggestion"
+msgstr "Le commentaire de la suggestion"
+
+#: pmb_reader_forms.inc:82
+msgid "Source"
+msgstr "Source"
+
+#: pmb_reader_forms.inc:84
+msgid "The source of the suggestion"
+msgstr "La source de la suggestion"
+
+#: pmb_reader_forms.inc:88
+msgid "No source"
+msgstr "Pas de source"
+
+#: pmb_reader_forms.inc:95
+msgid "Category"
+msgstr "Catégorie"
+
+#: pmb_reader_forms.inc:97
+msgid "The category of the suggestion"
+msgstr "La catégorie de la suggestion"
+
+#: pmb_reader_forms.inc:101
+msgid "No Category"
+msgstr "Pas de catégorie"
+
+#: pmb_reader_forms.inc:110
+msgid "Save"
+msgstr "Enregistrer"
+
+#: pmb_reader_forms.inc:116 templates/pmb_reader_reader_account_reservations.tpl.php:42
+msgid "Delete"
+msgstr "Supprimer"
+
+#: pmb_reader_forms.inc:125
+msgid "You must enter a title."
+msgstr "Vous devez entrer un titre"
+
+#: pmb_reader_forms.inc:128
+msgid "You must enter an author."
+msgstr "Vous devez entrer un auteur"
+
+#: pmb_reader_forms.inc:131
+msgid "You must enter a publisher."
+msgstr "Vous devez entrer un éditeur"
+
+#: pmb_reader_forms.inc:158
+msgid "Your suggestion has been deleted."
+msgstr "Votre suggestion a été supprimée"
+
+#: pmb_reader_forms.inc:161
+msgid "Your suggestion has not been deleted."
+msgstr "Votre suggestion n'a pas été supprimée"
+
+#: pmb_reader_forms.inc:178
+msgid "Your suggestion has been saved."
+msgstr "Votre suggestion a été enregistrée"
+
+#: pmb_reader_forms.inc:181
+msgid "Your suggestion has not been saved."
+msgstr "Votre suggestion n'a pas été enregistrée"
+
+#: pmb_reader_forms.inc:205
+msgid "Remove selected elements from cart"
+msgstr "Supprimer les éléments sélectionnés du panier"
+
+#: pmb_reader_forms.inc:211
+msgid "Empty cart"
+msgstr "Votre panier est vide"
+
+#: pmb_reader_forms.inc:222;376
+msgid "You must select records before removing."
+msgstr "Aucune notice à supprimer"
+
+#: pmb_reader_forms.inc:229;386
+msgid "Unknown operation"
+msgstr "Opération inconnue"
+
+#: pmb_reader_forms.inc:258
+msgid "Add notice to cart"
+msgstr "Ajouter la notice au panier"
+
+#: pmb_reader_forms.inc:268
+msgid "Blank notice id."
+msgstr ""
+
+#: pmb_reader_forms.inc:271;310
+msgid "Could not understand query."
+msgstr ""
+
+#: pmb_reader_forms.inc:293
+msgid "Add your cart to this reading list"
+msgstr ""
+
+#: pmb_reader_forms.inc:307
+msgid "Blank reading list."
+msgstr ""
+
+#: pmb_reader_forms.inc:341
+msgid "Remove selected elements from list"
+msgstr ""
+
+#: pmb_reader_forms.inc:348
+msgid "Empty list"
+msgstr "Liste vide"
+
+#: pmb_reader_forms.inc:361
+msgid "Add the content of your cart to this list"
+msgstr "Ajouter le contenu du panier à cette liste"
+
+#: pmb_reader_reading_lists.inc:4
+msgid "My reader account: Reading Lists"
+msgstr "Mon compte lecteur - Listes de lecture"
+
+#: pmb_reader_reading_lists.inc:8;65;98 pmb_reader.module:207
+msgid "Reading Lists"
+msgstr "Listes de Lecture"
+
+#: pmb_reader_reading_lists.inc:23
+msgid "My reader account: Public Reading Lists"
+msgstr "Mon compte lecteur - Listes de lecture publiques"
+
+#: pmb_reader_reading_lists.inc:27 pmb_reader.module:233
+msgid "Public Reading Lists"
+msgstr "Listes de lecture publiques"
+
+#: pmb_reader_reading_lists.inc:56;57;89;90
+msgid "Reading list not found!"
+msgstr "Liste de lecture non trouvée !"
+
+#: pmb_reader_reservations.inc:4
+msgid "My reader account: Reservations"
+msgstr "Mon compte lecteur: réservations"
+
+#: pmb_reader_reservations.inc:8 pmb_reader.module:147
+msgid "Reservations"
+msgstr "Réservations"
+
+#: pmb_reader_reservations.inc:49;50
+msgid "Missing notice id!"
+msgstr "Id de la notice manquant"
+
+#: pmb_reader_reservations.inc:78;82
+msgid "Add a reservation"
+msgstr "Ajouter une réservation"
+
+#: pmb_reader_reservations.inc:87
+msgid "Could not create reservation!"
+msgstr "N'a pas pu créer la réservation"
+
+#: pmb_reader_suggestions.inc:4
+msgid "My reader account: Suggestions"
+msgstr "Mon compte lecteur: suggestion"
+
+#: pmb_reader_suggestions.inc:8;27 pmb_reader.module:159
+msgid "Suggestions"
+msgstr "Suggestions"
+
+#: pmb_reader_suggestions.inc:23
+msgid "View, add or edit a suggestion"
+msgstr "voir, ajouter ou modifier une suggestion"
+
+#: pmb_reader_suggestions.inc:54;55
+msgid "Suggestion not found!"
+msgstr "Suggestion non trouvée"
+
+#: pmb_reader.module:10
+msgid "Ce module n'inclut pas d'aide"
+msgstr "Ce module n'inclut pas d'aide"
+
+#: pmb_reader.module:118
+msgid "My Reader Account"
+msgstr "Mon compte lecteur"
+
+#: pmb_reader.module:119
+msgid "View and interract with your reader account"
+msgstr "Voir et interragir avec son compte lecteur"
+
+#: pmb_reader.module:128
+msgid "Summary"
+msgstr "Résumé"
+
+#: pmb_reader.module:129
+msgid "Summary of your reader account"
+msgstr "Résumé de votre compte lecteur"
+
+#: pmb_reader.module:136
+msgid "Your loans"
+msgstr "Vos prêts"
+
+#: pmb_reader.module:148
+msgid "Your reservations"
+msgstr "Vos réservations"
+
+#: pmb_reader.module:160
+msgid "Your suggestions"
+msgstr "Vos suggestions"
+
+#: pmb_reader.module:194
+msgid "Suggestion"
+msgstr "Suggestion"
+
+#: pmb_reader.module:195
+msgid "View a suggestions"
+msgstr "Voir une suggestion"
+
+#: pmb_reader.module:208
+msgid "View your reading lists"
+msgstr "Afficher vos listes de lecture"
+
+#: pmb_reader.module:220
+msgid "Reading List"
+msgstr "Liste de lecture"
+
+#: pmb_reader.module:221
+msgid "View your reading list"
+msgstr "Afficher vos listes de lecture"
+
+#: pmb_reader.module:234 templates/pmb_reader_reader_reading_lists.tpl.php:19
+msgid "View public reading lists"
+msgstr "Afficher les listes de lecture publiques"
+
+#: pmb_reader.module:246
+msgid "Public Reading List"
+msgstr "Liste de lecture publique"
+
+#: pmb_reader.module:247
+msgid "View a public reading list"
+msgstr "Afficher une liste de lecture publique"
+
+#: pmb_reader.module:260
+msgid "View the content of your cart"
+msgstr "Afficher le contenu de votre panier"
+
+#: pmb_reader.info:0
+msgid "PMB Reader"
+msgstr "PMB Reader"
+
+#: pmb_reader.info:0
+msgid "Allows PMB readers to login to and to interract with your drupal website"
+msgstr ""
+"Permet aux lecteurs de PMB de se logguer et d'interragir avec votre "
+"site drupal"
+
+#: pmb_reader.info:0
+msgid "PMB"
+msgstr "PMB"
+
+#: templates/pmb_reader_cart_form.tpl.php:22
+msgid "Your cart is empty"
+msgstr "Votre panier est vide"
+
+#: templates/pmb_reader_reader_account_loans.tpl.php:3
+msgid "Bar code"
+msgstr "Codebarre"
+
+#: templates/pmb_reader_reader_account_loans.tpl.php:3
+msgid "Media type"
+msgstr "Support"
+
+#: templates/pmb_reader_reader_account_loans.tpl.php:3
+msgid "Location"
+msgstr "Localisation"
+
+#: templates/pmb_reader_reader_account_loans.tpl.php:3
+msgid "Section"
+msgstr "Section"
+
+#: templates/pmb_reader_reader_account_loans.tpl.php:3
+msgid "Loan start date"
+msgstr "Date de début du prêt"
+
+#: templates/pmb_reader_reader_account_loans.tpl.php:3
+msgid "Loan return date"
+msgstr "Date de retour du prêt"
+
+#: templates/pmb_reader_reader_account_reservations.tpl.php:2
+msgid "Rank"
+msgstr "Rang"
+
+#: templates/pmb_reader_reader_account_reservations.tpl.php:2
+msgid "Title"
+msgstr "Titre"
+
+#: templates/pmb_reader_reader_account_reservations.tpl.php:2
+msgid "Information"
+msgstr "Information"
+
+#: templates/pmb_reader_reader_account_reservations.tpl.php:2
+msgid "Action"
+msgstr "Action"
+
+#: templates/pmb_reader_reader_account_reservations.tpl.php:33
+msgid "Your reservation is overtime"
+msgstr "Votre réservation est périmée"
+
+#: templates/pmb_reader_reader_account_reservations.tpl.php:36
+msgid "Your item is holded until the "
+msgstr "Votre exemplaire est réservé jusqu'au "
+
+#: templates/pmb_reader_reader_account_reservations.tpl.php:40
+msgid "In need of approuval"
+msgstr "En attente d'approbation"
+
+#: templates/pmb_reader_reader_account_suggestions.tpl.php:2
+msgid "State"
+msgstr "Etat"
+
+#: templates/pmb_reader_reader_account_suggestions.tpl.php:2;7
+msgid "View/Edit"
+msgstr "Voir/Editer"
+
+#: templates/pmb_reader_reader_account_suggestions.tpl.php:7
+msgid "View"
+msgstr "Voir"
+
+#: templates/pmb_reader_reader_account_suggestions.tpl.php:20
+msgid "Add a suggestion"
+msgstr "Ajouter une suggestion"
+
+#: templates/pmb_reader_reader_account_summary.tpl.php:8
+msgid "Last Name"
+msgstr "Nom"
+
+#: templates/pmb_reader_reader_account_summary.tpl.php:11
+msgid "First Name"
+msgstr "Prénom"
+
+#: templates/pmb_reader_reader_account_summary.tpl.php:14
+msgid "Bar Code"
+msgstr "Codebarre"
+
+#: templates/pmb_reader_reader_account_summary.tpl.php:17
+msgid "Join date"
+msgstr "Date d'adhésion"
+
+#: templates/pmb_reader_reader_account_summary.tpl.php:20
+msgid "Expiration date"
+msgstr "Date d'expiration"
+
+#: templates/pmb_reader_reader_public_reading_list.tpl.php:3 templates/pmb_reader_reader_public_reading_lists.tpl.php:2 templates/pmb_reader_reader_reading_lists.tpl.php:5 templates/pmb_reader_reading_list_form.tpl.php:5
+msgid "Name"
+msgstr "Nom"
+
+#: templates/pmb_reader_reader_public_reading_list.tpl.php:3 templates/pmb_reader_reader_public_reading_lists.tpl.php:2 templates/pmb_reader_reader_reading_lists.tpl.php:5 templates/pmb_reader_reading_list_form.tpl.php:5
+msgid "Description"
+msgstr "Description"
+
+#: templates/pmb_reader_reader_public_reading_lists.tpl.php:2
+msgid "Access"
+msgstr "Accès"
+
+#: templates/pmb_reader_reader_public_reading_lists.tpl.php:7
+msgid "Open"
+msgstr "Ouvert"
+
+#: templates/pmb_reader_reader_public_reading_lists.tpl.php:9
+msgid "Confidential"
+msgstr "Confidentiel"
+
+#: templates/pmb_reader_reader_reading_lists.tpl.php:3
+msgid "Your lists"
+msgstr "Vos listes"
+
+#: templates/pmb_reader_reader_reading_lists.tpl.php:18
+msgid "Public lists"
+msgstr "Listes publiques"
+
+#: templates/pmb_reader_reading_list_form.tpl.php:5
+msgid "Public"
+msgstr "Publique"
+
+#: templates/pmb_reader_reading_list_form.tpl.php:5
+msgid "Subscribers only"
+msgstr "Sur incription uniquement"
+
+#: templates/pmb_reader_reading_list_form.tpl.php:5
+msgid "Read only"
+msgstr "Lecture uniquement"
+
+#: templates/pmb_reader_reading_list_form.tpl.php:11;12;13
+msgid "Yes"
+msgstr "Oui"
+
+#: templates/pmb_reader_reading_list_form.tpl.php:11;12;13
+msgid "No"
+msgstr "Non"
+
+#: templates/pmb_reader_reading_list_form.tpl.php:32
+msgid "This list is empty"
+msgstr "Cette liste est vide"
+
