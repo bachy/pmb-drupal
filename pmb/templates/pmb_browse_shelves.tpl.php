@@ -11,7 +11,7 @@ $header = array(
 
 $rows = array();
 foreach($shelves as $ashelf) {
-	$rows[] = array(l($ashelf->name, 'pmb/browse_shelf/'.$ashelf->id), $ashelf->comment);
+	$rows[] = array(l($ashelf->name, 'pmb/browse/shelves/'.$ashelf->id), $ashelf->comment);
 }
 
 $template.= theme('table', $header, $rows);

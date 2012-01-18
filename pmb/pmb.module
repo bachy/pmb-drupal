@@ -46,9 +46,7 @@ termes.
 include(drupal_get_path('module', 'pmb').'/pmb_admin_pages.inc');
 include_once(drupal_get_path('module', 'pmb').'/forms/pmb_search_forms.inc');
 require_once(drupal_get_path('module', 'pmb').'/classes/pmb_data.inc');
-require_once(drupal_get_path('module', 'pmb').'/pmb_search.inc');
 require_once(drupal_get_path('module', 'pmb').'/pmb_templates.inc');
-require_once(drupal_get_path('module', 'pmb').'/pmb_ajax.inc');
 
 /**
 * Display help and module information
@@ -89,6 +87,7 @@ function pmb_perm() {
 function pmb_menu() {
   $items = array();
 
+	// settings
   $items['admin/settings/pmb'] = array(
     'title' => 'PMB module settings',
     'description' => t('Configure the PMB module'),
@@ -98,523 +97,351 @@ function pmb_menu() {
     'type' => MENU_NORMAL_ITEM,
   );  
   
-  $items['pmb/search'] = array(
+	// - - SEARCH - -
+	
+	$base = array(
+		'file' => 'pmb.pages.inc',
+	);
+	
+	// local search
+  $items['pmb/search'] = $base+array(
     'title' => 'Search the catalog',
     'description' => t('Search the catalog'),
-    'page callback' => 'pmb_search_catalog',
     'access arguments' => array('pmb search catalog'),
+    'page callback' => 'pmb_search_catalog',
+    'type' => MENU_NORMAL_ITEM,
   	'menu-name' => t("Quick links"),
-  	'file' => 'pmb_search.inc',  
-    'type' => MENU_NORMAL_ITEM,
   );
 
-  $items['pmb/local_search'] = array(
-    'title' => 'Search the local catalog',
-    'description' => t('Search the local catalog'),
-    'page callback' => 'pmb_search_catalog',
-    'access arguments' => array('pmb search catalog'),
-  	'menu-name' => t("Quick links"),
-  	'file' => 'pmb_search.inc',  
-    'type' => MENU_NORMAL_ITEM,
-  ); 
+	$items['pmb/search/local'] = array(
+	  'title' => t('Local catalog'),
+	  'description' => t('Search the local catalog'),
+	  'type' => MENU_DEFAULT_LOCAL_TASK,
+		'weight'=>0,
+		'page arguments' => array(3,4,5),
+	);
 
-  $items['pmb/external_search'] = array(
-    'title' => 'Search the external catalog',
-    'description' => t('Search the external catalog'),
-    'page callback' => 'pmb_search_external_catalog',
-    'access arguments' => array('pmb search catalog external'),
-  	'file' => 'pmb_search.inc',  
-    'type' => MENU_NORMAL_ITEM,
-  );
+	// external search
+	$items['pmb/search/external'] = $base+array(
+	  'title' => t('External catalog'),
+	  'description' => t('Search the external catalog'),
+	  'access arguments' => array('pmb search catalog external'),
+	  'page callback' => 'pmb_search_external_catalog',
+	  'type' => MENU_LOCAL_TASK,
+		'weight'=>1,
+		'page arguments' => array(3,4,5,6),
+	);
+	
+	// advanced search
+	// $base = array(
+	// 	'file' => 'pmb.pages.inc',  
+	//   'type' => MENU_LOCAL_TASK,
+	// );
+	// 
+	// $items['pmb/search/advanced'] = $base+array(
+	//     'title' => 'Advanced search in the catalog',
+	//     'description' => t('Search the catalog'),
+	//     'page callback' => 'pmb_advanced_search_catalog',
+	//     'access arguments' => array('pmb advanced search'),
+	// 	'weight'=>2,
+	//   );
+	// 
+	//   $items['pmb/search/advanced/result'] = $base+array(
+	//     'page callback' => 'pmb_advanced_search_result',
+	//     'access arguments' => array('pmb advanced search'),
+	//   );
 
-  $items['pmb/search/local'] = array(
-    'title' => t('Local catalog'),
-    'description' => t('Search the local catalog'),
-    'page callback' => 'pmb_search_catalog',
-    'access arguments' => array('pmb search catalog'),
-  	'file' => 'pmb_search.inc',  
-    'type' => MENU_DEFAULT_LOCAL_TASK,
-  );
   
-  $items['pmb/search/external'] = array(
-    'title' => t('External catalog'),
-    'description' => t('Search the external catalog'),
-    'page callback' => 'pmb_search_external_catalog',
-    'access arguments' => array('pmb search catalog external'),
-  	'file' => 'pmb_search.inc',  
-    'type' => MENU_LOCAL_TASK,
-  );
-  
-  $items['pmb/search/local/%/%'] = array(
-    'title' => t('Search the catalog'),
-    'description' => t('Search the catalog'),
-    'page callback' => 'pmb_search_catalog_search',
-    'page arguments' => array(3,4),
-    'access arguments' => array('pmb search catalog'),
-  	'file' => 'pmb_search.inc',  
-    'type' => MENU_CALLBACK,
-  );
 
-  $items['pmb/search/local/%/%/%'] = array(
-    'title' => t('Search the catalog'),
-    'description' => t('Search the catalog'),
-    'page callback' => 'pmb_search_catalog_search',
-    'page arguments' => array(3,4,5),
-    'access arguments' => array('pmb search catalog'),
-  	'file' => 'pmb_search.inc',  
-    'type' => MENU_CALLBACK,
-  );
+	// - - BROWSE - -
 
-  $items['pmb/search/external/%/%/%'] = array(
-    'title' => t('Search the external catalog'),
-    'description' => t('Search the external catalog'),
-    'page callback' => 'pmb_search_external_catalog_search',
-    'page arguments' => array(3,4,5),
-    'access arguments' => array('pmb search catalog external'),
-  	'file' => 'pmb_search.inc',  
-    'type' => MENU_CALLBACK,
-  );
-
-  $items['pmb/search/external/%/%/%/%'] = array(
-    'title' => t('Search the external catalog'),
-    'description' => t('Search the external catalog'),
-    'page callback' => 'pmb_search_external_catalog_search',
-    'page arguments' => array(3,4,5,6),
-    'access arguments' => array('pmb search catalog external'),
-  	'file' => 'pmb_search.inc',  
-    'type' => MENU_CALLBACK,
-  );
-  
-  $items['pmb/browse_catalog'] = array(
+  $items['pmb/browse'] = $base + array(
     'title' => t('Browse the catalog'),
     'description' => t('Browse the catalog'),
     'page callback' => 'pmb_browse_locations',
     'access arguments' => array('pmb browse'),
-  	'file' => 'pmb_browse_locations.inc',  
     'type' => MENU_NORMAL_ITEM,
   );
-  
-  $items['pmb/browse_catalog/locations'] = array(
+
+	// BROWSE Locations  
+  $items['pmb/browse/locations'] = array(
     'title' => t('Locations'),
     'description' => t('Browse the catalog - Locations'),
-    'page callback' => 'pmb_browse_locations',
-    'access arguments' => array('pmb browse'),
-  	'file' => 'pmb_browse_locations.inc',  
+		'page arguments' => array(3,4,5),
     'type' => MENU_DEFAULT_LOCAL_TASK,
   );
-  
-  $items['pmb/browse_catalog/thesauri'] = array(
-    'title' => t('Thesauri'),
-    'description' => t('Browse the catalog - Thesauri'),
-    'page callback' => 'pmb_browse_thesauri',
-    'access arguments' => array('pmb browse thesauri'),
-  	'file' => 'pmb_browse_thesauri.inc',  
-    'type' => MENU_LOCAL_TASK,
-  );
+	  
+	
+	// BROWSE thesauri
+	$items['pmb/browse/thesauri'] = $base+array(
+	  'title' => t('Thesauri'),
+	  'description' => t('Browse the catalog - Thesauri'),
+	  'access arguments' => array('pmb browse thesauri'),
+	  'type' => MENU_LOCAL_TASK,
+	  'page callback' => 'pmb_browse_thesauri',
+		'page arguments' => array(3,4),
+	);
 
-  $items['pmb/browse_catalog/serials'] = array(
+	$items['pmb/browse/serials'] = $base+array(
     'title' => t('Serials'),
     'description' => t('Browse the catalog - Serials'),
     'page callback' => 'pmb_browse_serials',
     'access arguments' => array('pmb browse serials'),
-  	'file' => 'pmb_browse_serials.inc',  
     'type' => MENU_LOCAL_TASK,
   );
-  
-  $items['pmb/browse_category/%'] = array(
-    'title' => t('Browse the catalog'),
-    'description' => t('Browse the catalog'),
-    'page callback' => 'pmb_browse_category',
-	'page arguments' => array(2),   
-    'access arguments' => array('pmb browse'),
-  	'file' => 'pmb_browse_thesauri.inc',  
-    'type' => MENU_CALLBACK,
-  );
-  $items['pmb/browse_category/%/%'] = array(
-    'title' => t('Browse the catalog'),
-    'description' => t('Browse the catalog'),
-    'page callback' => 'pmb_browse_category',
-	'page arguments' => array(2,3),   
-    'access arguments' => array('pmb browse'),
-  	'file' => 'pmb_browse_thesauri.inc',  
-    'type' => MENU_CALLBACK,
-  );
-  
-  $items['pmb/browse_location/%'] = array(
-    'title' => t('Browse the catalog'),
-    'description' => t('Browse the catalog'),
-    'page callback' => 'pmb_browse_location',
-	'page arguments' => array(2),   
-    'access arguments' => array('pmb browse'),
-  	'file' => 'pmb_browse_location.inc',  
-    'type' => MENU_CALLBACK,
-  );
 
-  $items['pmb/browse_section/%'] = array(
-    'title' => t('Browse the catalog'),
-    'description' => t('Browse the catalog'),
-    'page callback' => 'pmb_browse_section',
-	'page arguments' => array(2),   
-    'access arguments' => array('pmb browse'),
-  	'file' => 'pmb_browse_section.inc',  
-    'type' => MENU_CALLBACK,
-  );
-
-  $items['pmb/browse_section/%/%'] = array(
-    'title' => t('Browse the catalog'),
-    'description' => t('Browse the catalog'),
-    'page callback' => 'pmb_browse_section',
-	'page arguments' => array(2,3),   
-    'access arguments' => array('pmb browse'),
-  	'file' => 'pmb_browse_section.inc',  
-    'type' => MENU_CALLBACK,
-  );  
-
-  $items['pmb/browse_catalog/shelves'] = array(
+  $items['pmb/browse/shelves'] = $base+array(
     'title' => t('Shelves'),
     'description' => t('Browse the catalog - Shelves'),
     'page callback' => 'pmb_browse_shelves',
     'access arguments' => array('pmb browse'),
-  	'file' => 'pmb_browse_shelves.inc',  
     'type' => MENU_LOCAL_TASK,
-  );
-  
-  $items['pmb/browse_shelf/%'] = array(
-    'title' => t('Browse the catalog'),
-    'description' => t('Browse the catalog'),
-    'page callback' => 'pmb_browse_shelf',
-	'page arguments' => array(2),   
-    'access arguments' => array('pmb browse'),
-  	'file' => 'pmb_browse_shelves.inc',  
-    'type' => MENU_CALLBACK,
+		'page arguments' => array(3,4),
   );
 
-  $items['pmb/browse_shelf/%/%'] = array(
-    'title' => t('Browse the catalog'),
-    'description' => t('Browse the catalog'),
-    'page callback' => 'pmb_browse_shelf',
-	'page arguments' => array(2,3),   
-    'access arguments' => array('pmb browse'),
-  	'file' => 'pmb_browse_shelves.inc',  
-    'type' => MENU_CALLBACK,
-  );  
-  
-  $items['pmb/view_notice/%'] = array(
+
+	// - - VIEW - -
+  $items['pmb/view_notice/%'] = $base+array(
     'title' => t('View Record'),
     'description' => t('View a record'),
     'page callback' => 'pmb_view_notice',
 	'page arguments' => array(2),   
     'access arguments' => array('pmb view notice'),
-  	'file' => 'pmb_view_notice.inc',  
     'type' => MENU_CALLBACK,
   ); 
 
-  $items['pmb/view_external_notice/%'] = array(
+  $items['pmb/view_external_notice/%'] = $base+array(
     'title' => t('View External Notice'),
     'description' => t('View an external notice'),
     'page callback' => 'pmb_view_external_notice',
 	'page arguments' => array(2),   
     'access arguments' => array('pmb view notice'),
-  	'file' => 'pmb_view_notice.inc',
     'type' => MENU_CALLBACK,
   ); 
 
-  $items['pmb/view_bulletin/%'] = array(
+  $items['pmb/view_bulletin/%'] = $base+array(
     'title' => t('View Issue'),
     'description' => t('View an issue'),
     'page callback' => 'pmb_view_bulletin',
 	'page arguments' => array(2),   
     'access arguments' => array('pmb view notice'),
-  	'file' => 'pmb_view_notice.inc',  
     'type' => MENU_CALLBACK,
   );
   
-  $items['pmb/view_serial/%'] = array(
+  $items['pmb/view_serial/%'] = $base+array(
     'title' => t('View Serial'),
     'description' => t('View a serial'),
     'page callback' => 'pmb_view_serial',
-	'page arguments' => array(2),   
+		'page arguments' => array(2,3),   
     'access arguments' => array('pmb view notice'),
-  	'file' => 'pmb_view_notice.inc',  
     'type' => MENU_CALLBACK,
   );
 
-  $items['pmb/view_serial/%/%'] = array(
-    'title' => t('View Serial'),
-    'description' => t('View a serial'),
-    'page callback' => 'pmb_view_serial',
-	'page arguments' => array(2,3),   
-    'access arguments' => array('pmb view notice'),
-  	'file' => 'pmb_view_notice.inc',  
-    'type' => MENU_CALLBACK,
-  );   
-  
-  $items['pmb/view_author/%'] = array(
+  $items['pmb/view_author/%'] = $base + array(
     'title' => t('View Author'),
     'description' => t('View an author'),
     'page callback' => 'pmb_view_author',
-	'page arguments' => array(2),   
+		'page arguments' => array(2, 3),   
     'access arguments' => array('pmb view author'),
-  	'file' => 'pmb_view_author.inc',  
     'type' => MENU_CALLBACK,
   );
   
-  $items['pmb/view_author/%/%'] = array(
-    'title' => t('View Author'),
-    'description' => t('View an author'),
-    'page callback' => 'pmb_view_author',
-	'page arguments' => array(2,3),   
-    'access arguments' => array('pmb view author'),
-  	'file' => 'pmb_view_author.inc',  
-    'type' => MENU_CALLBACK,
-  );  
-  
-  $items['pmb/view_publisher/%'] = array(
+  $items['pmb/view_publisher/%'] = $base + array(
     'title' => t('View Publisher'),
     'description' => t('View a Publisher'),
     'page callback' => 'pmb_view_publisher',
-	'page arguments' => array(2),   
+		'page arguments' => array(2,3),   
     'access arguments' => array('pmb view publisher'),
-  	'file' => 'pmb_view_publisher.inc',  
     'type' => MENU_CALLBACK,
   );
   
-  $items['pmb/view_publisher/%/%'] = array(
-    'title' => t('View Publisher'),
-    'description' => t('View a Publisher'),
-    'page callback' => 'pmb_view_publisher',
-	'page arguments' => array(2,3),   
-    'access arguments' => array('pmb view publisher'),
-  	'file' => 'pmb_view_publisher.inc',  
+  $items['pmb/view_collection/%'] = $base + array(
+    'title' => t('View Collection'),
+    'description' => t('View a Collection'),
+    'page callback' => 'pmb_view_collection',
+		'page arguments' => array(2,3),   
+    'access arguments' => array('pmb view collection'),
+    'type' => MENU_CALLBACK,
+  );
+  
+	$items['pmb/view_subcollection/%'] = $base+array(
+    'title' => t('View Subcollection'),
+    'description' => t('View a Subcollection'),
+    'page callback' => 'pmb_view_subcollection',
+		'page arguments' => array(2,3),   
+    'access arguments' => array('pmb view collection'),
     'type' => MENU_CALLBACK,
   );
 
-  $items['pmb/view_collection/%'] = array(
-    'title' => t('View Collection'),
-    'description' => t('View a Collection'),
-    'page callback' => 'pmb_view_collection',
-	'page arguments' => array(2),   
-    'access arguments' => array('pmb view collection'),
-  	'file' => 'pmb_view_collection.inc',  
-    'type' => MENU_CALLBACK,
-  );
-  
-  $items['pmb/view_collection/%/%'] = array(
-    'title' => t('View Collection'),
-    'description' => t('View a Collection'),
-    'page callback' => 'pmb_view_collection',
-	'page arguments' => array(2,3),   
-    'access arguments' => array('pmb view collection'),
-  	'file' => 'pmb_view_collection.inc',  
-    'type' => MENU_CALLBACK,
-  );
-  
-	$items['pmb/view_subcollection/%'] = array(
-    'title' => t('View Subcollection'),
-    'description' => t('View a Subcollection'),
-    'page callback' => 'pmb_view_subcollection',
-	'page arguments' => array(2),   
-    'access arguments' => array('pmb view collection'),
-  	'file' => 'pmb_view_subcollection.inc',  
-    'type' => MENU_CALLBACK,
-  );
-  
-  $items['pmb/view_subcollection/%/%'] = array(
-    'title' => t('View Subcollection'),
-    'description' => t('View a Subcollection'),
-    'page callback' => 'pmb_view_subcollection',
-	'page arguments' => array(2,3),   
-    'access arguments' => array('pmb view collection'),
-  	'file' => 'pmb_view_subcollection.inc',  
-    'type' => MENU_CALLBACK,
-  );  
-  $items['pmb/advanced_search'] = array(
-    'title' => 'Advanced search in the catalog',
-    'description' => t('Search the catalog'),
-    'page callback' => 'pmb_advanced_search_catalog',
-    'access arguments' => array('pmb advanced search'),
-  	'file' => 'pmb_search.inc',  
-    'type' => MENU_NORMAL_ITEM,
-  );
-  $items['pmb/ajax/get_field'] = array(
+	// AJAX
+ 	$items['pmb/ajax/get_field'] = $base+array(
     'page callback' => 'pmb_ajax_get_field',
     'access arguments' => array('pmb advanced search'),
-  	'file' => 'pmb_ajax.inc',  
-    'type' => MENU_CALLBACK,
-  );
-  $items['pmb/advanced_search/result'] = array(
-    'page callback' => 'pmb_advanced_search_result',
-    'access arguments' => array('pmb advanced search'),
-  	'file' => 'pmb_search.inc',  
-    'type' => MENU_DEFAULT_LOCAL_TASK, 
+	  'type' => MENU_CALLBACK,
   );
 
-  $items['pmb/debug'] = array(
-    'page callback' => 'pmb_debug',
-    'access arguments' => array('pmb advanced search'),
-    'type' => MENU_NORMAL_ITEM, 
-  );
-	$items["pmb/ajax/block/shelf/%"] = array(
+	$items["pmb/ajax/block/shelf/%"] = $base+array(
     'page callback' => 'pmb_get_page_shelf_block',
-	'page arguments' => array(4), 
-	'access arguments' => array('pmb view notice'),
-  	'file' => 'pmb_ajax.inc',  
-    'type' => MENU_CALLBACK,	
+		'page arguments' => array(4,5), 
+		'access arguments' => array('pmb view notice'),
+	  'type' => MENU_CALLBACK,
 	);   
-	$items["pmb/ajax/block/shelf/%/%"] = array(
-    'page callback' => 'pmb_get_page_shelf_block',
-	'page arguments' => array(4,5), 
-	'access arguments' => array('pmb view notice'),
-  	'file' => 'pmb_ajax.inc',  
-    'type' => MENU_CALLBACK,	
-	);  
+
+	// debug
+	$items['pmb/debug'] = $base+array(
+	  'page callback' => 'pmb_debug',
+	  'access arguments' => array('pmb advanced search'),
+	  'type' => MENU_NORMAL_ITEM, 
+	);
+
  
   return $items;
 }
 
 
-
-function pmb_theme() {
+/**
+ * Implements hook_theme().
+ */
+function pmb_theme($existing, $type, $theme, $path) {
   return array(
     'pmb_pager' => array(
       'arguments' => array(
-  		'current_page' => null,
-  		'page_count' => null,
+	  		'current_page' => null,
+	  		'page_count' => null,
         'tags' => null,
-  		'quantity' => null,
-  		'link_generator_callback' => null
-      )
+	  		'quantity' => null,
+	  		'link_generator_callback' => null
+      ),
     ),
     'pmb_notice_view' => array(
       'arguments' => array(
         'notice' => null,
-  		'parameters' => null,
-      )
+  			'parameters' => null,
+      ),
     ),
     'pmb_notice_info' => array(
       'arguments' => array(
         'notice' => null,
-  		'info' => null,
-      )
+  			'info' => null,
+      ),
     ),
     'pmb_external_notice_view' => array(
       'arguments' => array(
         'notice' => null,
-  		'parameters' => null,
-      )
+  			'parameters' => null,
+      ),
     ),
     'pmb_serial_view' => array(
       'arguments' => array(
         'notice' => null,
-  		'parameters' => null,
-      )
+  			'parameters' => null,
+      ),
     ),
     'pmb_bulletin_view' => array(
       'arguments' => array(
         'bulletin' => null,
-    	'serial' => null,
-  		'parameters' => null,
-      )
+	    	'serial' => null,
+	  		'parameters' => null,
+      ),
     ),
     'pmb_notice_display' => array(
       'arguments' => array(
         'notice' => null,
-    	'display_type' => null,
-  		'parameters' => null,
-      )
+	    	'display_type' => null,
+	  		'parameters' => null,
+      ),
     ),
     'pmb_external_notice_display' => array(
       'arguments' => array(
         'notice' => null,
-    	'display_type' => null,
-  		'parameters' => null,
-      )
+	    	'display_type' => null,
+	  		'parameters' => null,
+      ),
     ),
     'pmb_author_view' => array(
       'arguments' => array(
         'author' => null,
-  		'parameters' => null,
-      )
+  			'parameters' => null,
+      ),
     ),
     'pmb_publisher_view' => array(
       'arguments' => array(
         'publisher' => null,
-  		'parameters' => null,
-      )
+  			'parameters' => null,
+      ),
     ),
-	'pmb_collection_view' => array(
+		'pmb_collection_view' => array(
       'arguments' => array(
         'collection' => null,
-    	'parent_publisher' => null,
-  		'parameters' => null,
-      )
+	    	'parent_publisher' => null,
+	  		'parameters' => null,
+      ),
     ),
-	'pmb_subcollection_view' => array(
+		'pmb_subcollection_view' => array(
       'arguments' => array(
         'subcollection' => null,
-    	'parent_collection' => null,
-  		'parameters' => null,
-      )
+	    	'parent_collection' => null,
+	  		'parameters' => null,
+      ),
     ),
     'pmb_browse_locations' => array(
       'arguments' => array(
         'locations_and_sections' => null,
-  		'parameters' => null,
-      )
+  			'parameters' => null,
+      ),
     ),    
     'pmb_browse_shelves' => array(
       'arguments' => array(
         'shelves' => null,
-  		'parameters' => null,
-      )
+  			'parameters' => null,
+      ),
     ),    
     'pmb_browse_thesauri' => array(
       'arguments' => array(
         'thesauri' => null,
-  		'parameters' => null,
-      )
+  			'parameters' => null,
+      ),
     ),    
     'pmb_browse_category' => array(
       'arguments' => array(
         'category' => null,
-  		'parameters' => null,
-      )
+  			'parameters' => null,
+      ),
     ),
     'pmb_browse_serials' => array(
       'arguments' => array(
         'serials' => null,
-  		'parameters' => null,
-      )
+  			'parameters' => null,
+      ),
     ),
     'pmb_browse_location' => array(
       'arguments' => array(
         'location' => null,
-  		'parameters' => null,
-      )
+  			'parameters' => null,
+      ),
     ),
     'pmb_browse_section' => array(
       'arguments' => array(
-    	'location' => null,
+    		'location' => null,
         'section' => null,
-    	'notices' => null,
-  		'parameters' => null,
+	    	'notices' => null,
+	  		'parameters' => null,
       ),
     ),
     'pmb_browse_shelf' => array(
       'arguments' => array(
         'shelf' => null,
-    	'notices' => null,
-  		'parameters' => null,
+	    	'notices' => null,
+	  		'parameters' => null,
       ),
     ),
     'pmb_shelf_block' => array(
       'arguments' => array(
         'shelf' => null,
-  		'parameters' => null
-      )
+  			'parameters' => null
+      ),
     ),
-    'pmb_search_form' => array(
-    ),
+    'pmb_search_form' => array(),
     'pmb_search_results' => array(
       'arguments' => array(
     	'search_terms' => null,
@@ -625,113 +452,139 @@ function pmb_theme() {
     ),
     'pmb_external_search_results' => array(
       'arguments' => array(
-    	'search_terms' => null,
-    	'search_sources' => null,
-    	'search_fields' => null,
-    	'notices' => null,
-  		'parameters' => null,
+	    	'search_terms' => null,
+	    	'search_sources' => null,
+	    	'search_fields' => null,
+	    	'notices' => null,
+	  		'parameters' => null,
       ),
     ),
     'pmb_external_search_form_form' => array(
       'arguments' => array('form' => NULL),
       'file' => drupal_get_path('module', 'pmb').'forms/pmb_search_forms.inc',
     ),
-    'pmb_advanced_search_form' => array(
-    ),
-	'pmb_block_pager' => array(
+    'pmb_advanced_search_form' => array(),
+		'pmb_block_pager' => array(
       'arguments' => array(
-  		'current_page' => null,
-  		'page_count' => null,
+	  		'current_page' => null,
+	  		'page_count' => null,
         'tags' => null,
-    	'id' => null,
-  		'link_generator_callback' => null
-      )
-    )
+	    	'id' => null,
+	  		'link_generator_callback' => null
+      ),
+    ),
   );	
 }
 
-function pmb_block($op = 'list', $delta = 0) {
-  if ($op == 'list') {
-    $blocks['search'] = array(
-    	'info' => t('Search the catalog'),
-    	'cache' => BLOCK_NO_CACHE,
-    );
-    
-	$pmb_data = new pmb_data();
-	if (isset($GLOBALS["user"]->uid) && isset($GLOBALS["user"]->pmb_credentials))
-		$pmb_data->set_user($GLOBALS["user"]);
-	$shelves = $pmb_data->get_shelves();
-	if ($shelves) {
-		foreach($shelves as $ashelf) {
-		    $blocks['shelf_'.$ashelf->id] = array(
-		    	'info' => t('Shelf').": ".$ashelf->name,
-		    	'cache' => BLOCK_CACHE_PER_USER,
-		    );			
-		}
-	}    
-    
-    return $blocks;
-  }
-  elseif ($op == 'view') {
-    if ($delta == 'search') {
-        if (arg(0) == 'pmb' && arg(1) == 'search') {
-      		return;
-    	}
-    	if (user_access('pmb search catalog', $GLOBALS["user"])) {
-			return array(
-				'subject' => t('Search the catalog'),
-				'content' => drupal_get_form('pmb_search_form_block_form'),
-			);
-	    }
-		else {
-			return array(
-				'subject' => t('Search the catalog'),
-				'content' => 'You do not have the permissions to search the catalog',
-			);
-		}
-    }
-    else if (substr($delta, 0, 6) == 'shelf_') {
-    	$shelf_id = substr($delta, 6);
-		if (!$shelf_id)
-			return;
-    	
-		$pmb_data = new pmb_data();
-		if (isset($GLOBALS["user"]->uid) && isset($GLOBALS["user"]->pmb_credentials))
-			$pmb_data->set_user($GLOBALS["user"]);
+/**
+ * Implements hook_block().
+ */
+function pmb_block($op = 'list', $delta = 0, $edit = array()) {
+  switch ($op) {
 
-		$shelves = $pmb_data->get_shelves();
-    	$shelf = array();
-		foreach($shelves as $ashelf) {
-			if ($ashelf->id == $shelf_id) {
-				$shelf = $ashelf;
-				break;
-			}
-		}
+    case 'list':
+	    $blocks['search'] = array(
+	    	'info' => t('Search the catalog'),
+	    	'cache' => BLOCK_NO_CACHE,
+	    );
+  
+			$pmb_data = new pmb_data();
+			if (isset($GLOBALS["user"]->uid) && isset($GLOBALS["user"]->pmb_credentials))
+				$pmb_data->set_user($GLOBALS["user"]);
 	
-		if(!isset($shelf)) {
-			return t('Shelf not found!');
-		}			
+			$shelves = $pmb_data->get_shelves();
+			if ($shelves) {
+				foreach($shelves as $ashelf) {
+			    $blocks['shelf_'.$ashelf->id] = array(
+			    	'info' => t('Shelf').": ".$ashelf->name,
+			    	'cache' => BLOCK_CACHE_PER_USER,
+			    );			
+				}
+			}    
+  
+	    return $blocks;
 
-    	return array(
-			'subject' => t('Shelf').': '.$shelf->name,
-			'content' => theme('pmb_shelf_block', $shelf, array())
-    	);
-    }
-  }
+    case 'configure':
+      // if ($delta == 0 && user_access('administer module')) {
+      //   $form['module_block_1'] = array();
+      // }
+      // if ($delta == 1 && user_access('administer module')) {
+      //   $form['module_block_2'] = array();
+      // }
+      // return $form;
+
+    case 'save':
+      // if ($delta == 0) {
+      //   variable_set('module_block_setting_1', $edit['module_block_1']);
+      // }
+      // if ($delta == 1) {
+      //   variable_set('module_block_setting_2', $edit['module_block_2']);
+      // }
+      break;
+
+    case 'view':
+      if ($delta == 'search') {
+	      
+				if (arg(0) == 'pmb' && arg(1) == 'search')
+	     		return;
+	
+	   		if (user_access('pmb search catalog', $GLOBALS["user"]))
+					return array(
+						'subject' => t('Search the catalog'),
+						'content' => drupal_get_form('pmb_search_form_block_form'),
+					);
+				
+				return array(
+					'subject' => t('Search the catalog'),
+					'content' => 'You do not have the permissions to search the catalog',
+				);
+				
+	    }else if( substr($delta, 0, 6) == 'shelf_' ){
+
+	    	$shelf_id = substr($delta, 6);
+
+				if (!$shelf_id)
+					return;
+
+				$pmb_data = new pmb_data();
+				if (isset($GLOBALS["user"]->uid) && isset($GLOBALS["user"]->pmb_credentials))
+					$pmb_data->set_user($GLOBALS["user"]);
+
+				$shelves = $pmb_data->get_shelves();
+	    	$shelf = array();
+
+				foreach($shelves as $ashelf)
+					if ($ashelf->id == $shelf_id) {
+						$shelf = $ashelf;
+						break;
+					}
+
+				if(!isset($shelf))
+					return t('Shelf not found!');
+
+	    	return array(
+					'subject' => t('Shelf').': '.$shelf->name,
+					'content' => theme('pmb_shelf_block', $shelf, array())
+	    	);
+	    }
+  }    
 }
 
+/**
+ * Implements hook_search().
+ */
 function pmb_search($op='search',$search_terms=NULL){
 	if(user_access("pmb aggregate search")){
 		switch($op){
-			case "name" :
-				$result = t("Catalog");
-				break;
-			case "admin" :
-				$result = array();	
-	    		break;
-			case "search" :
-				$result = pmb_search_aggregate($search_terms);
-				break; 
+		case "name" :
+			$result = t("Catalog");
+			break;
+		case "admin" :
+			$result = array();	
+			break;
+		case "search" :
+			$result = pmb_search_aggregate($search_terms);
+			break; 
 		}
 		return $result;
 	}
@@ -741,5 +594,5 @@ function pmb_flush_caches() {
   return array('pmb_cache');
 }
 
-function pmb_debug(){
-}
+
+

@@ -26,9 +26,9 @@
 				}
 			}
 			if ($child->is_link)
-				$rows[] = array('<i>'.l($caption, 'pmb/browse_category/'.$child->node_id).'</i>');
+				$rows[] = array('<i>'.l($caption, 'pmb/browse/thesauri/'.$child->node_id).'</i>');
 			else
-				$rows[] = array(l($caption, 'pmb/browse_category/'.$child->node_id));
+				$rows[] = array(l($caption, 'pmb/browse/thesauri/'.$child->node_id));
 		}
 		$template.= theme('table', $header, $rows);
 	}
@@ -58,7 +58,7 @@
 					$caption = t('Unknown caption');
 				}
 			}
-			$rows[] = array(l($caption, 'pmb/browse_category/'.$child->node_id));
+			$rows[] = array(l($caption, 'pmb/browse/thesauri/'.$child->node_id));
 		}
 		$template.= theme('table', $header, $rows);
 	}
@@ -82,7 +82,7 @@
 			}		
 		}
 		
-		$link_maker_function = create_function('$page_number', 'return "pmb/browse_category/'.$category->node->node_id.'/".$page_number;');
+		$link_maker_function = create_function('$page_number', 'return "pmb/browse/thesauri/'.$category->node->node_id.'/".$page_number;');
 		$template.= theme('pmb_pager', $parameters['page_number'], ceil(count($category->notice_ids) / $parameters['notices_per_pages']), array(), 7, $link_maker_function);  
 		
 		$template.= '</div>';

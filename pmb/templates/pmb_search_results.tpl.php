@@ -14,6 +14,7 @@ $header = array(
 $rows = array();
 
 if (isset($notices) && count($notices)) {
+	dsm($notices);
 	foreach($notices as $anotice) {
 		$rows[] =  array(theme('pmb_notice_display', $anotice, 'medium_line', array()));
 	}

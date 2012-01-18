@@ -10,7 +10,7 @@ $header = array(
 
 $rows = array();
 foreach($thesauri as $thesaurus) {
-	$rows[] = array(l($thesaurus->thesaurus_caption, 'pmb/browse_category/'.$thesaurus->thesaurus_num_root_node));
+	$rows[] = array(l($thesaurus->thesaurus_caption, 'pmb/browse/thesauri/'.$thesaurus->thesaurus_num_root_node));
 }
 
 $template.= theme('table', $header, $rows);

@@ -19,7 +19,7 @@ if (isset($notices)) {
 
 	$template.= theme('table', $header, $rows);	
 	
-	$link_maker_function = create_function('$page_number', 'return "pmb/browse_shelf/'.$shelf->id.'/".$page_number;');
+	$link_maker_function = create_function('$page_number', 'return "pmb/browse/shelves/'.$shelf->id.'/".$page_number;');
 	$template.= theme('pmb_pager', $parameters['page_number'], ceil($parameters['section_notice_count'] / $parameters['notices_per_pages']), array(), 7, $link_maker_function);
 }
 else {
