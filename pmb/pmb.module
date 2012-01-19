@@ -501,7 +501,12 @@ function pmb_block($op = 'list', $delta = 0, $edit = array()) {
 			    );			
 				}
 			}    
-  
+  		
+			$blocks['pmb_powered'] = array(
+				'info' => t('Powered by PMB')
+			);
+
+
 	    return $blocks;
 
     case 'configure':
@@ -523,7 +528,13 @@ function pmb_block($op = 'list', $delta = 0, $edit = array()) {
       break;
 
     case 'view':
-      if ($delta == 'search') {
+			if($delta == 'pmb_powered'){
+				return array(
+					'subject' => null,
+					'content' => t('powered by !link', array("!link"=>l('Pmb Services', 'http://www.pmbservices.fr'))),
+				);
+				
+			}else if($delta == 'search') {
 	      
 				if (arg(0) == 'pmb' && arg(1) == 'search')
 	     		return;
