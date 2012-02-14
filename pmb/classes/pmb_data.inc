@@ -739,6 +739,30 @@ class pmb_data {
 		return $result;
 	}	
 	
+	public function get_unimarc_labels() {
+		global $pmb_labels;
+		
+		if(!$pmb_labels){
+			if (!$this->gateway)
+				return array();
+			
+			$this->delete_old_cache_objects();
+			
+			$cache_db = db_query("SELECT object_data FROM {pmb_cache} WHERE object_id = '%s'", 'unimarc_labels');
+			if ($cache_db && $record=db_fetch_array($cache_db)) {
+				$result = unserialize($record['object_data']);
+				return $result;
+			}			
+				
+			$pmb_labels = $this->gateway->get_unimarc_labels();
+			
+			$cache_duration = 3*3600;
+			$cache_duration += 0;
+			db_query("INSERT INTO {pmb_cache} (object_id, delete_on_date, object_data) VALUES ('%s', NOW() + INTERVAL %s SECOND, '%s')", 'unimarc_labels', $cache_duration, serialize($result));
+		}
+		return $pmb_labels;
+	}
+	
 	public function reader_sessid($login, $password) {
 		$user = user_load(array('name' => $login));
 		if ($user && isset($user->pmb_session['sessid_date'])) {

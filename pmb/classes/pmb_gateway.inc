@@ -30,6 +30,7 @@ abstract class pmb_gateway {
 	abstract public function get_search_notice_ids($search_terms, $search_fields);
 	abstract public function get_external_search_notice_ids($search_terms, $search_fields, $source_ids);
 	abstract public function get_external_search_sources();
+	abstract public function get_unimarc_labels();
 	
 	abstract public function reader_login($login, $password);
 	abstract public function reader_get_account_info();

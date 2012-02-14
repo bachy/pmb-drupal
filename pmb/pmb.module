@@ -606,4 +606,12 @@ function pmb_flush_caches() {
 }
 
 
-
+function pmb_get_label($field,$subfield=""){
+	$pmb_data = new pmb_data();
+	$labels = $pmb_data->get_unimarc_labels();
+	if($subfield==""){
+		return $labels->$field->label;
+	}else{
+		return $labels->$field->subfields->$subfield;
+	}
+}

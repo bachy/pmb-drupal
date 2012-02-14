@@ -585,6 +585,16 @@ class pmb_gateway_json_rpc extends pmb_gateway{
 		return $result;
 	}
 	
+	public function get_unimarc_labels() {
+		$result = '';
+		try {
+			$result = $this->client->pmbesCommons_get_unimarc_labels();
+		} catch (Exception $e) {
+			drupal_set_message(t('JSON-RPC error').': '+check_plain($e->getMessage()), 'error');
+		}
+		return $result;
+	}
+	
 	public function reader_login($login, $password) {
 		$result = '';
 		try {
